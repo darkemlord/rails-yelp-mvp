@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Restaurants</h1>
+  <%= link_to "Add a new restaurant", :new_restaurant %>
+  <% @restaurants.each do |restaurant| %>
+  <div class="container d-flex flex-column">
+    <div class="card-trip m-1">
+    <%= image_tag "http://source.unsplash.com/featured/?#{restaurant.category}food&#{rand(1000)}"%>
+    <div class="card-trip-infos">
+      <div>
+        <%= link_to restaurant_path(restaurant) do%>
+          <h2><%= restaurant.name %></h2>
+        <% end %>
+        <p><%= restaurant.category %></p>
+      </div>
+        <h2 class="card-trip-pricing"><%= restaurant.address %></h2>
+        <p>Contact Us: <%= restaurant.phone_number %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

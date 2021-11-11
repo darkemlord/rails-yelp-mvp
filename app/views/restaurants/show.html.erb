@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(http://source.unsplash.com/featured/?<%= @restaurant.category %>food&<%=rand(1000)%>);">
+  <div class="container">
+    <h1><%= @restaurant.name %></h1>
+    <p><%= @restaurant.category %></p>
+    <p><%= @restaurant.address %></p>
+    <p>Contact <%= @restaurant.phone_number %></p>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
+</div>
+  <div class="container">
+  <h1>Add your review!
+    <%= link_to  new_restaurant_review_path(@restaurant) do%>
+    <em class="far fa-comment"></em>
+    <%= link_to :restaurants do %>
+            <em class="fas fa-home"></em>
+    <% end %>
+    <% end %>
+  </h1>
+  </div>
+      <ul class="list-group">
+        <% @restaurant.reviews.each do |review| %>
+          <li class="list-group-item"><%= review.content %></li>
+        <% end %>
+      </ul>
+
+</div>
